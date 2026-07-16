@@ -1,5 +1,5 @@
 ﻿// author github.com/MIrrox27/Axion-SQL
-
+// Program.cs
 
 using System;
 
