@@ -72,7 +72,33 @@ public class Perfomer
             else throw new Exception($"Unexpected command {_command[i]}, expected 'ELEMENT'");
             break;
           }
+        
+        case "GET":
+          {
+            i++;
+            
+            int col = 0;
+            int row = 1;
 
+            if (_command[i] == "ROW")
+            {
+              i++;
+              row = int.Parse(_command[i]);
+            }
+            else throw new Exception($"Unexpected command {_command[i]}, expected 'ROW'");
+            
+            i++;
+
+            if (_command[i] == "COLUMN")
+            {
+              i++;
+              col = int.Parse(_command[i]);
+            }
+            else throw new Exception($"Unexpected command {_command[i]}, expected 'COLUMN'");
+
+            Console.WriteLine(DataStore.DataBase[row][col]); // пока просто вывод в консоль, потом сделаю возврат значения или отправку на сервер
+            break;
+          }
 
       }
     }    
