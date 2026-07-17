@@ -100,6 +100,15 @@ public class Perfomer
             break;
           }
 
+        /*case "DELETE":
+          {
+            
+            break;
+          }*/
+
+        default: 
+          throw new Exception($"Unexpected command '{_command[i]}'");
+
       }
     }    
 
