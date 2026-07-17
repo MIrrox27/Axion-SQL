@@ -4,7 +4,7 @@
 using System.Collections.Generic;
 using AxionSQL.Modules;
 using System.Linq;
-namespace AxionSQL.Modules;
+namespace AxionSQL.Services;
 
 public class Parser
 {
