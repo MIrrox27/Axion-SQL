@@ -18,6 +18,11 @@ public class Perfomer
           {
             i++;
 
+            if (DataStore.DataBase.Count == 0)
+            {
+                DataStore.DataBase.Add(new List<string>());
+            }
+
             if (_command[i] == "COLUMN")
             {
               foreach (var el in DataStore.DataBase)
@@ -25,7 +30,8 @@ public class Perfomer
                 el.Add("");
               }
               i++;
-              DataStore.DataBase[0][^1] = _command[i];
+              int len = DataStore.DataBase[0].Count;
+              DataStore.DataBase[0][len - 1] = _command[i];
             }
 
             else if (_command[i] == "ROW")
