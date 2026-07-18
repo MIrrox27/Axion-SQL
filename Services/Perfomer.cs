@@ -11,6 +11,10 @@ public class Perfomer
   public static void Perfom(List<string> _command)
   {
 
+    if (DataStore.DataBase.Count == 0)
+      DataStore.DataBase.Add(new List<string>());
+    
+
     for (int i = 0; i < _command.Count; i++)
     {
       switch (_command[i])
@@ -19,35 +23,38 @@ public class Perfomer
           {
             i++; // 1\4
 
-            if (DataStore.DataBase.Count == 0)
-            {
-                DataStore.DataBase.Add(new List<string>());
-            }
+            //Console.WriteLine($"-start New-- {i-1}-{_command[i-1]} -- *{i}-{_command[i]}* -- {i + 1}-{_command[i+1]}");
+
+
 
             if (_command[i] == "COLUMN")
             {
+              i++;
+              //Console.WriteLine($"-col1-- {i-1}-{_command[i-1]} -- *{i}-{_command[i]}* -- {i + 1}-{_command[i+1]}"); 
               foreach (var el in DataStore.DataBase)
               {
                 el.Add("");
               }
-              i++; // 2\5
-              int len = DataStore.DataBase[0].Count;
-              DataStore.DataBase[0][len - 1] = _command[i];
+              DataStore.DataBase[0][^1] = _command[i];
+              //Console.WriteLine($"-col2-- {i-1}-{_command[i-1]} -- *{i}-{_command[i]}* -- {i + 1}-{_command[i+1]}");
             }
 
             else if (_command[i] == "ROW")
             {
-              int len = DataStore.DataBase.Count;
+              int len = DataStore.DataBase[0].Count;
+              i++;
+              //Console.WriteLine($"-row1-- {i-1}-{_command[i-1]} -- *{i}-{_command[i]}* -- {i+1}");
               
 
               if (i+1 < len && !string.IsNullOrWhiteSpace(_command[i++]) && int.TryParse(_command[i++], out int number))
               { 
+                Console.WriteLine($"{_command[i+1]}");
                 i++;
                 int rows = int.Parse(_command[i]);
                 for (int t = 0; t < rows; t++) 
                 {
                   List<string> new_row = new();
-                  for (int j = 0; j < len; j++) new_row.Add("");
+                  for (int j = 0; j < len; j++) new_row.Add("ф");
                   DataStore.DataBase.Add(new_row);
                 }
                 
@@ -55,12 +62,14 @@ public class Perfomer
               else
               {
                 List<string> new_row = new();
-                for (int j = 0; j < len; j++) new_row.Add("");
+                for (int j = 0; j < len; j++) new_row.Add("ф");
                 DataStore.DataBase.Add(new_row); 
               }
-              i++;
-              
+              //Console.WriteLine($"-row2-- {i-1}-{_command[i-1]} -- *{i}-{_command[i]}* -- ");              
             }
+            else Console.WriteLine($"Expected command {_command[i]}");
+
+            //Console.WriteLine($"-end New-- {i-1}-{_command[i-1]} -- *{i}-{_command[i]}* -- ");
             break;
           }
 
