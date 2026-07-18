@@ -11,11 +11,17 @@ namespace AxionSQL
   {
      static void Main()
     {
-      Console.WriteLine("Axion SQL\n> ");
-      string command = Console.ReadLine();
-      Perfomer.Perfom(Parser.Parse(command));
+      Console.WriteLine("Axion SQL");
+      while (true)   
+      {
 
-      PrintTable(DataStore.DataBase);
+        Console.Write("\n> ");
+        string command = Console.ReadLine();
+        if (command == "q") break;
+        Perfomer.Perfom(Parser.Parse(command));
+
+        PrintTable(DataStore.DataBase);
+      }
 
     // test command NEW COLUMN A NEW COLUMN B NEW ROW NEW ROW NEW ROW PUSH ROW 1 COLUMN 0 ELEMENT 67 GET ROW 1 COLUMN 0
     }
