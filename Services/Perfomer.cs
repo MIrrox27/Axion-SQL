@@ -46,11 +46,11 @@ public class Perfomer
               //Console.WriteLine($"-row1-- {i-1}-{_command[i-1]} -- *{i}-{_command[i]}* -- {i+1}");
               
               Console.WriteLine($"i={i}, count={_command.Count-1}\n\n");
-              if (!string.IsNullOrWhiteSpace(_command[i]) && int.TryParse(_command[i], out int number))
+              if (int.TryParse(_command[i], out int number))
               { 
                 Console.WriteLine($"rows={_command[i]}");
                 int rows = int.Parse(_command[i]);
-                for (int t = 0; t < rows; t++) 
+                for (int t = 0; t < rows; t++)
                 {
                   List<string> new_row = new();
                   for (int j = 0; j < len; j++) new_row.Add("ф"); // временно буду заполнять строки по умолчанию буквой "ф" чтобы видеть как работает добавление строк
