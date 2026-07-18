@@ -36,9 +36,21 @@ public class Perfomer
 
             else if (_command[i] == "ROW")
             {
+              i++;
               int len = DataStore.DataBase.Count;
               List<string> new_row = new();
-              for (int j = 0; j < len; j++) new_row.Add("");
+
+              if (int.TryParse(_command[i], out int number))
+              { 
+                int rows = int.Parse(_command[i]);
+                i++;
+                for (int t = 0; t < rows; t++) for (int j = 0; j < len; j++) new_row.Add("");
+                
+              }
+              else
+              {
+                for (int j = 0; j < len; j++) new_row.Add(""); 
+              }
               DataStore.DataBase.Add(new_row);
             }
             break;
