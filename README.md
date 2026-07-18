@@ -16,7 +16,7 @@ For do this, you can use this commands:
 First row used for named your columns.
 
 
-## Build and Run
+## Install and Run
 
 This app was make in C#.
 
