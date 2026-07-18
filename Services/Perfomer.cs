@@ -1,6 +1,7 @@
 // author github.com/MIrrox27/Axion-SQL
 // Services/Perfomer.cs
 
+using System.Diagnostics.Tracing;
 using AxionSQL.Modules;
 using AxionSQL.Services;
 
@@ -14,9 +15,9 @@ public class Perfomer
     {
       switch (_command[i])
       {
-        case "NEW":
+        case "NEW": // NEW-0 COLUMN-1 A-2 NEW-3 COLUMN-4 B-5 NEW-6 ROW-7
           {
-            i++;
+            i++; // 1\4
 
             if (DataStore.DataBase.Count == 0)
             {
@@ -29,29 +30,36 @@ public class Perfomer
               {
                 el.Add("");
               }
-              i++;
+              i++; // 2\5
               int len = DataStore.DataBase[0].Count;
               DataStore.DataBase[0][len - 1] = _command[i];
             }
 
             else if (_command[i] == "ROW")
             {
-              i++;
               int len = DataStore.DataBase.Count;
-              List<string> new_row = new();
+              
 
-              if (int.TryParse(_command[i], out int number))
+              if (i+1 < len && !string.IsNullOrWhiteSpace(_command[i++]) && int.TryParse(_command[i++], out int number))
               { 
-                int rows = int.Parse(_command[i]);
                 i++;
-                for (int t = 0; t < rows; t++) for (int j = 0; j < len; j++) new_row.Add("");
+                int rows = int.Parse(_command[i]);
+                for (int t = 0; t < rows; t++) 
+                {
+                  List<string> new_row = new();
+                  for (int j = 0; j < len; j++) new_row.Add("");
+                  DataStore.DataBase.Add(new_row);
+                }
                 
               }
               else
               {
-                for (int j = 0; j < len; j++) new_row.Add(""); 
+                List<string> new_row = new();
+                for (int j = 0; j < len; j++) new_row.Add("");
+                DataStore.DataBase.Add(new_row); 
               }
-              DataStore.DataBase.Add(new_row);
+              i++;
+              
             }
             break;
           }
