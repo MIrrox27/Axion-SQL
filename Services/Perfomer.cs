@@ -155,6 +155,7 @@ public class Perfomer
                 DataStore.DataBase.RemoveAt(row);               
               }              
             }
+
             else if (_command[i] == "COLUMN")
             {
               i++;
@@ -162,6 +163,22 @@ public class Perfomer
               {
                 el.RemoveAt(int.Parse(_command[i])); 
               }
+            }
+
+            else
+            {
+              string element_to_delete = _command[i];
+              foreach (var lst in DataStore.DataBase)
+              {
+                for (int j = 0; i < lst.Count; j++)
+                {
+                  if (lst[j] == element_to_delete)
+                  {
+                    lst[j] = element_to_delete;
+                  }
+                }
+              }
+              
             }
             
             break;
