@@ -8,6 +8,8 @@ using AxionSQL.Services;
 
 public class Perfomer
 {
+
+  public static string DEFAULT_CHAR = "*";
   public static void Perfom(List<string> _command)
   {
 
@@ -33,7 +35,7 @@ public class Perfomer
               //Console.WriteLine($"-col1-- {i-1}-{_command[i-1]} -- *{i}-{_command[i]}* -- {i + 1}-{_command[i+1]}"); 
               foreach (var el in DataStore.DataBase)
               {
-                el.Add(""); 
+                el.Add(DEFAULT_CHAR); 
               }
               DataStore.DataBase[0][^1] = _command[i];
               //Console.WriteLine($"-col2-- {i-1}-{_command[i-1]} -- *{i}-{_command[i]}* -- {i + 1}-{_command[i+1]}");
@@ -53,7 +55,7 @@ public class Perfomer
                 for (int t = 0; t < rows; t++)
                 {
                   List<string> new_row = new();
-                  for (int j = 0; j < len; j++) new_row.Add(""); 
+                  for (int j = 0; j < len; j++) new_row.Add(DEFAULT_CHAR); 
                   DataStore.DataBase.Add(new_row);
                 }
                 
@@ -61,7 +63,7 @@ public class Perfomer
               else
               {
                 List<string> new_row = new();
-                for (int j = 0; j < len; j++) new_row.Add(""); 
+                for (int j = 0; j < len; j++) new_row.Add(DEFAULT_CHAR); 
                 DataStore.DataBase.Add(new_row); 
               }
               //Console.WriteLine($"-row2-- {i-1}-{_command[i-1]} -- *{i}-{_command[i]}* -- ");              
@@ -146,7 +148,7 @@ public class Perfomer
               { 
                 i++; i++;
                 int col = int.Parse(_command[i]);
-                DataStore.DataBase[row][col] = "";
+                DataStore.DataBase[row][col] = DEFAULT_CHAR;
 
                 
               }
