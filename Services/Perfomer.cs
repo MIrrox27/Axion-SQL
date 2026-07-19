@@ -45,7 +45,7 @@ public class Perfomer
               i++;
               //Console.WriteLine($"-row1-- {i-1}-{_command[i-1]} -- *{i}-{_command[i]}* -- {i+1}");
               
-              Console.WriteLine($"i={i}, count={_command.Count-1}\n\n");
+              //Console.WriteLine($"i={i}, count={_command.Count-1}\n\n");
               if (int.TryParse(_command[i], out int number))
               { 
                 Console.WriteLine($"rows={_command[i]}");
@@ -134,11 +134,38 @@ public class Perfomer
             break;
           }
 
-        /*case "DELETE":
+        case "DELETE": 
           {
+            i++;
+
+            if (_command[i] == "ROW")
+            {
+              i++;
+              int row = int.Parse(_command[i]);;
+              if (_command[i+1] == "COLUMN")
+              { 
+                i++; i++;
+                int col = int.Parse(_command[i]);
+                DataStore.DataBase[row][col] = "";
+
+                
+              }
+              else if (int.TryParse(_command[i], out int number))
+              {
+                DataStore.DataBase.RemoveAt(row);               
+              }              
+            }
+            else if (_command[i] == "COLUMN")
+            {
+              i++;
+              foreach (var el in DataStore.DataBase)
+              {
+                el.RemoveAt(int.Parse(_command[i])); 
+              }
+            }
             
             break;
-          }*/
+          }
 
         default: 
           throw new Exception($"Unexpected command '{_command[i]}'");
