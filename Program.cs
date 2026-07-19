@@ -14,6 +14,8 @@ namespace AxionSQL
       Console.WriteLine("Axion SQL");
       while (true)   
       {
+        Console.WriteLine($"-- Database name: {DataStore.DataBaseName}");
+        Console.WriteLine($"-- Database path: {DataStore.DataBasePath}\n");
 
         Console.Write("\n> ");
         string command = Console.ReadLine();
