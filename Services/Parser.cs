@@ -19,7 +19,7 @@ public class Parser
     _command = Regex.Replace(_command.Trim(), @"\s+", " ");
     List<string> command = _command.Split(' ').ToList();
     foreach (var a in command) Console.WriteLine($"{a}");
-    Console.WriteLine($"\n - LEN: {command.Count}");
+    Console.WriteLine($"\n - COMMAND LEN: {command.Count}");
     return command;
     
   }
