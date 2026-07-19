@@ -186,6 +186,35 @@ public class Perfomer
             break;
           }
 
+        case "TABLE":
+          {
+            i++;
+
+            if (_command[i] == "NAME")
+            {
+              i++;
+              string pastName = DataStore.DataBaseName;
+              string name = _command[i] + ".json";
+              DataStore.DataBaseName = name;
+              Console.WriteLine($"-- Table Name changed from '{pastName}' to '{name}'");
+            }
+            else if (_command[i] == "PATH")
+            {
+              i++;
+              string pastPath = DataStore.DataBasePath;
+              string path = _command[i];
+              DataStore.DataBasePath = path;
+              Console.WriteLine($"-- Table path changed from '{pastPath}' to '{path}'");
+            }
+            else if (_command[i] == "SAVE"){}
+            else if (_command[i] == "NEW"){}
+            else if (_command[i] == "IMPORT"){}
+            else if (_command[i] == "EXPORT"){}
+
+            else Console.WriteLine($"Expected command {_command[i]}");
+
+            break;
+          }
         default: 
           throw new Exception($"Unexpected command '{_command[i]}'");
 
