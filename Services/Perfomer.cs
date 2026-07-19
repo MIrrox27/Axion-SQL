@@ -50,7 +50,7 @@ public class Perfomer
               //Console.WriteLine($"i={i}, count={_command.Count-1}\n\n");
               if (int.TryParse(_command[i], out int number))
               { 
-                Console.WriteLine($"rows={_command[i]}");
+                //Console.WriteLine($"rows={_command[i]}");
                 int rows = int.Parse(_command[i]);
                 for (int t = 0; t < rows; t++)
                 {
@@ -144,7 +144,7 @@ public class Perfomer
             {
               i++;
               int row = int.Parse(_command[i]);;
-              if (_command[i+1] == "COLUMN")
+              if (i+1 < _command.Count && _command[i+1] == "COLUMN")
               { 
                 i++; i++;
                 int col = int.Parse(_command[i]);
@@ -172,7 +172,7 @@ public class Perfomer
               string element_to_delete = _command[i];
               foreach (var lst in DataStore.DataBase)
               {
-                for (int j = 0; i < lst.Count; j++)
+                for (int j = 0; i < DataStore.DataBase[0].Count; j++)
                 {
                   if (lst[j] == element_to_delete)
                   {
