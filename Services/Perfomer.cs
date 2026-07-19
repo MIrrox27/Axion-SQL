@@ -198,6 +198,7 @@ public class Perfomer
               DataStore.DataBaseName = name;
               Console.WriteLine($"-- Table Name changed from '{pastName}' to '{name}'");
             }
+
             else if (_command[i] == "PATH")
             {
               i++;
@@ -206,10 +207,32 @@ public class Perfomer
               DataStore.DataBasePath = path;
               Console.WriteLine($"-- Table path changed from '{pastPath}' to '{path}'");
             }
-            else if (_command[i] == "SAVE"){}
-            else if (_command[i] == "NEW"){}
-            else if (_command[i] == "IMPORT"){}
-            else if (_command[i] == "EXPORT"){}
+
+            else if (_command[i] == "SAVE")
+            {
+              i++;
+              FileSave.TableSave();
+            }
+            else if (_command[i] == "NEW"){
+              i++;
+              FileSave.TableNew();
+            }
+
+            else if (_command[i] == "IMPORT"){
+              i++;
+              string pathToGet = _command[i];
+              int import = FileGet.TableImport(pathToGet);
+              if (import == 0) Console.WriteLine($"Table imported from {pathToGet}");
+              else Console.WriteLine("Something error by import table");
+            }
+            else if (_command[i] == "EXPORT")
+            {
+              i++;
+              string pathToSave = _command[i];
+              int export = FileSave.TableExport(pathToSave);
+              if (export == 0) Console.WriteLine($"Table exported to {pathToSave}");
+              else Console.WriteLine("Something error by export table");
+            }
 
             else Console.WriteLine($"Expected command {_command[i]}");
 
