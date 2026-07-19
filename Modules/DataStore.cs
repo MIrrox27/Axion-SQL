@@ -8,7 +8,16 @@ namespace AxionSQL.Modules;
 public static class DataStore
 {
   public static List<List<string>> DataBase { get; set; } = new List<List<string>> ();
-  public static string DataBasePath = "./";
-  public static string DataBaseName = "table.json";
+  
+  private static string DataBasePathDefault = "./";
+  private static string DataBaseNameDefault = "table.json";
+  
+  public static string DataBasePath = DataBasePathDefault;
+  public static string DataBaseName = DataBasePathDefault;
 
+  public static void SetDefault()
+  {
+    DataBasePath = DataBasePathDefault;
+    DataBaseName = DataBasePathDefault;
+  }
 }
