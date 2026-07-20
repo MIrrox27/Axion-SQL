@@ -11,9 +11,10 @@ namespace AxionSQL.Services;
 
 class FileSave
 {
-  public static int TableSave()
+  public static int TableSave() // TABLE NAME test TABLE PATH C:\table\ NEW COLUMN name NEW COLUMN age NEW ROW 2 PUSH ROW 1 COLUMN 0 ELEMENT Maksim PUSH ROW 1 COLUMN 1 ELEMENT 16
   {
-    string pathToSave = DataStore.DataBasePath + DataStore.DataBaseName;
+    string pathToSave = Path.Combine(DataStore.DataBasePath,  DataStore.DataBaseName);
+    Directory.CreateDirectory(DataStore.DataBasePath);
     var options = new JsonSerializerOptions { WriteIndented = true };
     string prettyJson = JsonSerializer.Serialize(DataStore.DataBase, options); 
 
