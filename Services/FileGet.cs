@@ -3,6 +3,9 @@
 
 using System.IO;          
 using System.Text.Json; 
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
 
 using AxionSQL.Modules;  
 
@@ -16,10 +19,16 @@ class FileGet
     if (File.Exists(path))
     {
     string importTable = File.ReadAllText(path);
+    string fileName = Path.GetFileName(path);
+    string filePath = Path.GetDirectoryName(path);
+
       try
       {
         if (!string.IsNullOrEmpty(importTable) && !string.IsNullOrWhiteSpace(importTable))
         DataStore.DataBase = JsonSerializer.Deserialize<List<List<string>>>(importTable);
+
+        DataStore.DataBaseName = fileName;
+        DataStore.DataBasePath = filePath;
       }
       catch (JsonException)
       {
