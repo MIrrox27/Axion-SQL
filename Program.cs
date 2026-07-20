@@ -21,7 +21,7 @@ namespace AxionSQL
         string command = Console.ReadLine();
         if (command == "q") break;
         Perfomer.Perfom(Parser.Parse(command));
-
+        Console.Write("\n\n\n");
         PrintTable(DataStore.DataBase);
       }
 
