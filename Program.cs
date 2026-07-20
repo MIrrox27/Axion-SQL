@@ -11,7 +11,7 @@ namespace AxionSQL
   {
      static void Main()
     {
-      Console.WriteLine("Axion SQL");
+      Console.WriteLine("\n\n -- Axion SQL");
       while (true)   
       {
         Console.WriteLine($"-- Database name: {DataStore.DataBaseName}");
