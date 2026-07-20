@@ -13,7 +13,7 @@ public static class DataStore
   private static string DataBaseNameDefault = "table.json";
   
   public static string DataBasePath = DataBasePathDefault;
-  public static string DataBaseName = DataBasePathDefault;
+  public static string DataBaseName = DataBaseNameDefault;
 
   public static void SetDefault()
   {
