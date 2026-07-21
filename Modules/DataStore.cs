@@ -9,11 +9,11 @@ public static class DataStore
 {
   public static List<List<string>> DataBase { get; set; } = new List<List<string>> ();
   
-  private static string DataBasePathDefault = @"./";
-  private static string DataBaseNameDefault = @"table.json";
+  private static readonly string DataBasePathDefault  = @"./";
+  private static readonly string DataBaseNameDefault = @"table.json";
   
-  public static string DataBasePath = DataBasePathDefault;
-  public static string DataBaseName = DataBaseNameDefault;
+  public static string DataBasePath { get; set; } = DataBasePathDefault;
+  public static string DataBaseName { get; set; } = DataBaseNameDefault;
 
   public static void SetDefault()
   {
