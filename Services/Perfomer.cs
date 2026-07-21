@@ -10,6 +10,14 @@ public class Perfomer
 {
 
   public static string DEFAULT_CHAR = "*";
+  private static readonly object _locker = new object();
+  public static void PerfomAsync(List<string> _command)
+  {
+    lock (_locker)
+    {
+      Perfom(_command);
+    }
+  }
   public static void Perfom(List<string> _command)
   {
 
