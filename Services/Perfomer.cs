@@ -10,20 +10,13 @@ public class Perfomer
 {
 
   public static string DEFAULT_CHAR = "*";
-  private static readonly object _locker = new object();
-  public static void PerfomAsync(List<string> _command)
-  {
-    lock (_locker)
-    {
-      Perfom(_command);
-    }
-  }
-  public static void Perfom(List<string> _command)
+  
+  public static string Perfom(List<string> _command)
   {
 
     if (DataStore.DataBase.Count == 0)
       DataStore.DataBase.Add(new List<string>());
-    
+    string result = "";
 
     for (int i = 0; i < _command.Count; i++)
     {
@@ -141,6 +134,7 @@ public class Perfomer
             else throw new Exception($"Unexpected command {_command[i]}, expected 'COLUMN'");
 
             Console.WriteLine(DataStore.DataBase[row][col]); // пока просто вывод в консоль, потом сделаю возврат значения или отправку на сервер
+            result = DataStore.DataBase[row][col];
             break;
           }
 
@@ -251,7 +245,7 @@ public class Perfomer
 
       }
     }    
-
+    return result;
   }
 
 }
