@@ -9,6 +9,7 @@ using System.Collections.Concurrent;
 using System.Threading.Tasks;
 
 using AxionSQL.Services;
+using AxionSQL.Modules;
 using AxionSQL;
 
 namespace AxionSQL.Services;
@@ -20,6 +21,18 @@ class Server
     var builder = WebApplication.CreateBuilder();
     builder.Logging.ClearProviders();
     var app = builder.Build();
+
+    app.MapGet("/db", async () =>
+    {
+      await Task.Delay(10);
+
+      lock (Locker)
+      {
+        return Results.Ok(DataStore.DataBase);
+      }  
+
+
+    });
 
     app.MapPost("/db", async (string command) =>
     {
