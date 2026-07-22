@@ -17,9 +17,7 @@ public static class DataStore
   public static string DataBaseName { get; set; } = DataBaseNameDefault;
 
   public static Dictionary<string, string> AliasTables { get; set; } = new();
-  
   public static string CurrentTable = DataBaseName;
-  public static string CurrentPath = Path.Combine(DataBasePath, DataBaseName);
 
   public static void SetDefault()
   {
