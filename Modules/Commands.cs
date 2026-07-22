@@ -17,9 +17,9 @@ public enum CommandTokens
   NAME, // установить имя
   PATH,  // установить путь 
   SAVE, // Сохранить таблицу по установленному пути
-  CHANGE, 
+  CHANGE, // TABLE CHANGE <alias>
 
-  ALIAS, // TABLE ALIAS CHANGE <new_alias>
+  ALIAS, // TABLE ALIAS <new_alias>
 
 
   IMPORT, // Сменить/открыть таблицу 
