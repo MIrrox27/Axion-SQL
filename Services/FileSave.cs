@@ -36,6 +36,7 @@ class FileSave
     TableSave();
     DataStore.SetDefault();
     DataStore.DataBase = new();
+    DataStore.CurrentTable = DataStore.DataBaseName;
   }
 
 }
