@@ -16,7 +16,12 @@ public class Perfomer
 
     if (DataStore.DataBase.Count == 0)
       DataStore.DataBase.Add(new List<string>());
+
+    if (DataStore.AliasTables.Count == 0)
+      DataStore.AliasTables[DataStore.CurrentTable] = Path.Combine(DataStore.DataBasePath, DataStore.DataBaseName);
+
     string result = "";
+
 
     for (int i = 0; i < _command.Count; i++)
     {
@@ -198,6 +203,7 @@ public class Perfomer
               string pastName = DataStore.DataBaseName;
               string name = _command[i] + ".json";
               DataStore.DataBaseName = name;
+              //DataStore.AliasTables[DataStore.CurrentTable] = Path.Combine(DataStore.DataBasePath, DataStore.DataBaseName);
               Console.WriteLine($"-- Table Name changed from '{pastName}' to '{name}'");
             }
 
@@ -207,6 +213,7 @@ public class Perfomer
               string pastPath = DataStore.DataBasePath;
               string path = _command[i];
               DataStore.DataBasePath = path;
+              //DataStore.AliasTables[DataStore.CurrentTable] = Path.Combine(DataStore.DataBasePath, DataStore.DataBaseName);
               Console.WriteLine($"-- Table path changed from '{pastPath}' to '{path}'");
             }
 
@@ -227,6 +234,7 @@ public class Perfomer
               if (import == 0) Console.WriteLine($"Table imported from {pathToGet}");
               else Console.WriteLine("Something error by import table");
             }
+
             else if (_command[i] == "EXPORT")
             {
               i++;
@@ -235,6 +243,50 @@ public class Perfomer
               if (export == 0) Console.WriteLine($"Table exported to {pathToSave}");
               else Console.WriteLine("Something error by export table");
             }
+
+            else if (_command[i] == "CHANGE"){
+              i++;
+              if (DataStore.AliasTables.ContainsKey(_command[i]))
+              {
+                string pathToGet = DataStore.AliasTables[_command[i]];
+                FileGet.TableImport(pathToGet);
+              }
+              else
+              {
+                Console.WriteLine($"Unknown alias '{_command[i]}'");
+              }
+              
+            }
+            else if (_command[i] == "ALIAS")
+            {
+              i++;
+              string pastAlias = DataStore.CurrentTable;
+              string alias = _command[i];
+              if (DataStore.AliasTables.ContainsKey(pastAlias))
+              {
+                DataStore.AliasTables[pastAlias] = DataStore.AliasTables[alias];
+                DataStore.CurrentTable = alias;
+              }
+              else
+              {
+                DataStore.CurrentTable = alias;
+                DataStore.AliasTables[alias] = Path.Combine(DataStore.DataBasePath, DataStore.DataBaseName);
+              }
+
+
+            }
+            else if (_command[i] == "ALL") // выводит\возвращает список всех бд в буффере
+            {
+              i++;
+              foreach (var (key, val) in DataStore.AliasTables)
+              {
+                if (key == DataStore.CurrentTable)
+                  result += $"*{key}: {val}\n";
+                else result += $"{key}: {val}\n";
+              }
+            } 
+
+
 
             else Console.WriteLine($"Expected command {_command[i]}");
 
