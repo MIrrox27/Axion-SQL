@@ -246,6 +246,7 @@ public class Perfomer
 
             else if (_command[i] == "CHANGE"){
               i++;
+              FileSave.TableSave();
               if (DataStore.AliasTables.ContainsKey(_command[i]))
               {
                 string pathToGet = DataStore.AliasTables[_command[i]];
