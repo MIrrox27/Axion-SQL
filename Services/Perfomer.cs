@@ -268,10 +268,11 @@ public class Perfomer
                 DataStore.AliasTables[pastAlias] = DataStore.AliasTables[alias];
                 DataStore.CurrentTable = alias;
               }
+
               else
               {
                 DataStore.CurrentTable = alias;
-                DataStore.AliasTables[alias] = Path.Combine(DataStore.DataBasePath, DataStore.DataBaseName);
+                DataStore.AliasTables.Add(DataStore.CurrentTable, Path.Combine(DataStore.DataBasePath, DataStore.DataBaseName));
               }
 
 
