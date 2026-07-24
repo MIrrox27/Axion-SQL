@@ -265,7 +265,10 @@ public class Perfomer
               string alias = _command[i];
               if (DataStore.AliasTables.ContainsKey(pastAlias))
               {
-                DataStore.AliasTables[pastAlias] = DataStore.AliasTables[alias];
+                string val = DataStore.AliasTables[pastAlias];
+                DataStore.AliasTables.Remove(pastAlias);
+                DataStore.AliasTables[alias] = val;
+
                 DataStore.CurrentTable = alias;
               }
 
@@ -280,12 +283,14 @@ public class Perfomer
             else if (_command[i] == "ALL") // выводит\возвращает список всех бд в буффере
             {
               i++;
+              Console.WriteLine("\n\n -- Tables: ");
               foreach (var (key, val) in DataStore.AliasTables)
               {
                 if (key == DataStore.CurrentTable)
                   result += $"*{key}: {val}\n";
                 else result += $"{key}: {val}\n";
               }
+              Console.WriteLine(result);
             } 
 
 
