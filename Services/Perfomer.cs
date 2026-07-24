@@ -265,9 +265,8 @@ public class Perfomer
               string alias = _command[i];
               if (DataStore.AliasTables.ContainsKey(pastAlias))
               {
-                string val = DataStore.AliasTables[pastAlias];
                 DataStore.AliasTables.Remove(pastAlias);
-                DataStore.AliasTables[alias] = val;
+                DataStore.AliasTables[alias] = DataStore.DataBasePath;
 
                 DataStore.CurrentTable = alias;
               }
