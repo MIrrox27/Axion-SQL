@@ -7,7 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-using AxionSQL.Modules;  
+using AxionSQL.Modules;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace AxionSQL.Services;
@@ -29,6 +30,7 @@ class FileGet
 
         DataStore.DataBaseName = fileName;
         DataStore.DataBasePath = filePath;
+        DataStore.CurrentTable = DataStore.DataBaseName;
       }
       catch (JsonException)
       {
