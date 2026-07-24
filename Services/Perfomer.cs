@@ -18,7 +18,7 @@ public class Perfomer
       DataStore.DataBase.Add(new List<string>());
 
     if (DataStore.AliasTables.Count == 0)
-      DataStore.AliasTables[DataStore.CurrentTable] = Path.Combine(DataStore.DataBasePath, DataStore.DataBaseName);
+      DataStore.AliasTables.Add(DataStore.CurrentTable, Path.Combine(DataStore.DataBasePath, DataStore.DataBaseName));
 
     string result = "";
 
