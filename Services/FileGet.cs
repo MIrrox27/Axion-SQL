@@ -32,6 +32,7 @@ class FileGet
       }
       catch (JsonException)
       {
+        Console.WriteLine("Error with import table");
         return 1;
       }
     }
