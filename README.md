@@ -12,6 +12,9 @@ For do this, you can use this commands:
  * `NEW COLUMN <column_name_without_spaces>` - make new column 
  * `PUSH ROW <row number> COLUMN <column number> ELEMENT <your text wihtout space>` - place your element to cell
  * `GET ROW <row_number> COLUMN <column_number>` - print element from cell 
+ * `DELETE ROW <row_number>` - delete row
+ * `DELETE COLUMN <column_number>` - delete column 
+ * `DELETE ROW <row_number> COLUMN <column_number>` - delete element
  * `TABLE NAME <new_name_without_spaces>` - set new name for table
  * `TABLE PATH <new_path_without_spaces>` - set new path to save
  * `TABLE NEW` - save last table and make new
