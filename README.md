@@ -10,22 +10,30 @@ For do this, you can use this commands:
 
  * `NEW ROW <count rows>` - make new row
  * `NEW COLUMN <column_name_without_spaces>` - make new column 
+
  * `PUSH ROW <row number> COLUMN <column number> ELEMENT <your text wihtout space>` - place your element to cell
  * `GET ROW <row_number> COLUMN <column_number>` - print element from cell 
+
  * `DELETE ROW <row_number>` - delete row
  * `DELETE COLUMN <column_number>` - delete column 
  * `DELETE ROW <row_number> COLUMN <column_number>` - delete element
+ * `CLEAR` - clear all rows but save columns structure 
+
  * `TABLE NAME <new_name_without_spaces>` - set new name for table
  * `TABLE PATH <new_path_without_spaces>` - set new path to save
  * `TABLE NEW` - save last table and make new
  * `TABLE IMPORT <path_to_table_without_spaces>` - import table from your path
  * `TABLE EXPORT <path_to_export_without_spaces>` - save table to new path, new path not save
  * `TABLE SAVE` - save table to main path
+
  * `TABLE ALIAS <alias_for_table>` - set alias for current table 
  * `TABLE ALL` - get all tables with alias in format "alias: path_to_table"
  * `TABLE CHANGE <table_alias>` - change table by alias
 
+ * `q` or `Q` - exit without save (enter without other args).
+
 First row use by name your columns.
+After after you enter your command you can see table in console (or you can see your table in real-time in the "your_host/db")
 
 
 ## Install and Run
