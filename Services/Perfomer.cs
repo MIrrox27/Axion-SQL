@@ -27,13 +27,9 @@ public class Perfomer
     {
       switch (_command[i])
       {
-        case "NEW": // NEW-0 COLUMN-1 A-2 NEW-3 COLUMN-4 B-5 NEW-6 ROW-7
+        case "NEW": 
           {
-            i++; // 1\4
-
-            //Console.WriteLine($"-start New-- {i-1}-{_command[i-1]} -- *{i}-{_command[i]}* -- {i + 1}-{_command[i+1]}");
-
-
+            i++; 
 
             if (_command[i] == "COLUMN")
             {
@@ -75,8 +71,6 @@ public class Perfomer
               //Console.WriteLine($"-row2-- {i-1}-{_command[i-1]} -- *{i}-{_command[i]}* -- ");              
             }
             else Console.WriteLine($"Expected command {_command[i]}");
-
-            //Console.WriteLine($"-end New-- {i-1}-{_command[i-1]} -- *{i}-{_command[i]}* -- ");
             break;
           }
 
@@ -188,8 +182,7 @@ public class Perfomer
                 }
               }
               
-            }
-            
+            }         
             break;
           }
 
@@ -281,6 +274,7 @@ public class Perfomer
 
             }
             else if (_command[i] == "ALL") // выводит\возвращает список всех бд в буффере
+
             {
               i++;
               Console.WriteLine("\n\n -- Tables: ");
@@ -297,6 +291,13 @@ public class Perfomer
 
             else Console.WriteLine($"Expected command {_command[i]}");
 
+            break;
+          }
+        
+        case "CLEAR":
+          {
+            for (int j = 1; j < DataStore.DataBase.Count; i++)
+              DataStore.DataBase.RemoveAt(j);
             break;
           }
         default: 
