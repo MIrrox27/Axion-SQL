@@ -28,6 +28,7 @@ namespace AxionSQL
       while (true)   
       {
         Console.WriteLine($"\n\n-- Database name: {DataStore.DataBaseName}");
+        Console.WriteLine($"-- Database alias: {DataStore.CurrentTable}");
         Console.WriteLine($"-- Database path: {DataStore.DataBasePath}\n");
 
         Console.Write("\n> ");
