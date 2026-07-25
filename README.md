@@ -18,7 +18,7 @@ For do this, you can use this commands:
  * `TABLE IMPORT <path_to_table_without_spaces>` - import table from your path
  * `TABLE EXPORT <path_to_export_without_spaces>` - save table to new path, new path not save
  * `TABLE SAVE` - save table to main path
- * `TABLE ALIAS <alias_for_table>` - set alias for current table
+ * `TABLE ALIAS <alias_for_table>` - set alias for current table 
  * `TABLE ALL` - get all tables with alias in format "alias: path_to_table"
  * `TABLE CHANGE <table_alias>` - change table by alias
 
