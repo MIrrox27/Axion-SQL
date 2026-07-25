@@ -251,6 +251,7 @@ public class Perfomer
               {
                 string pathToGet = DataStore.AliasTables[_command[i]];
                 FileGet.TableImport(pathToGet);
+                DataStore.CurrentTable = _command[i];
               }
               else
               {
