@@ -309,16 +309,15 @@ public class Perfomer
             for (int j = 0; j < DataStore.DataBase.Count; j++)
             {
               int t = DataStore.DataBase[j].IndexOf(target);
-              if (t != 0)
+              if (t != -1)
               {
                 result += $"(row: {j}, col: {t})";
               }
               
             }
-
-
             break;
           }
+
         default: 
           throw new Exception($"Unexpected command '{_command[i]}'");
 
