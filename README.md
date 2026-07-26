@@ -17,6 +17,7 @@ For do this, you can use this commands:
  * `DELETE ROW <row_number>` - delete row
  * `DELETE COLUMN <column_number>` - delete column 
  * `DELETE ROW <row_number> COLUMN <column_number>` - delete element
+ * `DELETE <str_el>` - delete all specified items
  * `CLEAR` - clear all rows but save columns structure 
 
  * `TABLE NAME <new_name_without_spaces>` - set new name for table
