@@ -31,6 +31,7 @@ For do this, you can use this commands:
  * `TABLE ALL` - get all tables with alias in format "alias: path_to_table"
  * `TABLE CHANGE <table_alias>` - change table by alias
 
+ * `WHERE <item>` - get indexes the all specified items
  * `q` or `Q` - exit without save (enter without other args).
 
 First row use by name your columns.
