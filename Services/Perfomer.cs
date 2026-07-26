@@ -308,10 +308,12 @@ public class Perfomer
             result += $"'{target}' in: ";
             for (int j = 0; j < DataStore.DataBase.Count; j++)
             {
-              int t = DataStore.DataBase[j].IndexOf(target);
-              if (t != -1)
+              for (int t = 0; t < DataStore.DataBase[0].Count; t++)
               {
-                result += $"(row: {j}, col: {t})";
+                if (DataStore.DataBase[j][t] == target)
+                {
+                  result += $"(row: {j}, col: {t})";
+                }
               }
               
             }
