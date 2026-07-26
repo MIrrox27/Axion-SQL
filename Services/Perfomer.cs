@@ -133,7 +133,7 @@ public class Perfomer
             else throw new Exception($"Unexpected command {_command[i]}, expected 'COLUMN'");
 
             Console.WriteLine(DataStore.DataBase[row][col]); // пока просто вывод в консоль, потом сделаю возврат значения или отправку на сервер
-            result = DataStore.DataBase[row][col];
+            result += "GET: " + DataStore.DataBase[row][col] + "\n";
             break;
           }
 
@@ -298,6 +298,25 @@ public class Perfomer
           {
             for (int j = 1; j < DataStore.DataBase.Count; i++)
               DataStore.DataBase.RemoveAt(j);
+            break;
+          }
+        
+        case "WHERE":
+          {
+            i++;
+            string target = _command[i];
+            result += $"'{target}' in: ";
+            for (int j = 0; j < DataStore.DataBase.Count; j++)
+            {
+              int t = DataStore.DataBase[j].IndexOf(target);
+              if (t != 0)
+              {
+                result += $"(row: {j}, col: {t})";
+              }
+              
+            }
+
+
             break;
           }
         default: 
