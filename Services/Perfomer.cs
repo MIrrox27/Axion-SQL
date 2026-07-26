@@ -170,16 +170,17 @@ public class Perfomer
 
             else
             {
-              string element_to_delete = _command[i];
-              foreach (var lst in DataStore.DataBase)
+              string target = _command[i];
+              for (int j = 0; j < DataStore.DataBase.Count; j++)
               {
-                for (int j = 0; i < DataStore.DataBase[0].Count; j++)
+                for (int t = 0; t < DataStore.DataBase[0].Count; t++)
                 {
-                  if (lst[j] == element_to_delete)
+                  if (DataStore.DataBase[j][t] == target)
                   {
-                    lst[j] = element_to_delete;
+                    DataStore.DataBase[j][t] = DEFAULT_CHAR;
                   }
                 }
+                
               }
               
             }         
