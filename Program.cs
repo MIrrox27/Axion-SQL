@@ -34,7 +34,7 @@ namespace AxionSQL
         Console.Write("\n> ");
         string? input = Console.ReadLine();
         if (input == "q" || input == "Q") break;
-        Perfomer.Perfom(Parser.Parse(input));
+        Console.Write(Perfomer.Perfom(Parser.Parse(input)));
         Console.Write("\n\n\n");
         PrintTable(DataStore.DataBase);
       }
