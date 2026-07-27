@@ -9,7 +9,7 @@ using AxionSQL.Services;
 public class Perfomer
 {
 
-  public static string DEFAULT_CHAR = "*";
+  public static string DEFAULT_CHAR = "";
   
   public static string Perfom(List<string> _command)
   {
